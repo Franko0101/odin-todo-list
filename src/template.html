@@ -3,9 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>What To-Do?</title>
 </head>
 <body>
-    
+    <div class="whole-page">
+        <div class="header">
+            <h1>What To-Do?</h1>
+            <div class="buttons">
+                <button class="new-project-btn">New Project</button>
+                <button class="add-todo-btn">Add a todo</button>
+            </div>
+        </div>
+        <div class="container">
+            <div class="sideboard">
+                <ul class="projects-list">
+                    <li>All Tasks</li>
+                </ul>
+                <div class="form-container" hidden>
+                    <form action="">
+                        <label for="title">Titolo</label>
+                        <input type="text" id="title" name="title" required>
+                        <label for="description">Descrizione</label>
+                        <input type="text" id="description" name="description" required>
+                        <label for="deadline">Scadenza</label>
+                        <input type="date" id="deadline" name="deadline">
+                        <label for="priority">Priorità</label>
+                        <select name="priority" id="priority" required>
+                            <option value="high">Alta</option>
+                            <option value="medium">Media</option>
+                            <option value="low">Bassa</option>
+                        </select>
+                        <div class="form-buttons">
+                            <button type="submit">Conferma</button>
+                            <button type="reset">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="main">
+                <ul class="todos-list">
+                    <li>
+                        <div class="card">
+                            <input type="checkbox" id="todo1" name="todo1" value=false>
+                            <div class="card-text">
+                                <label for="todo1">Formattare il pc</label>
+                                <p>Problemi con il processo CDPsvc</p>
+                            </div>
+                            <div class="card-deadline">
+                                <p>Proprità: Alta</p>
+                                <p>Scadenza: 23/09/2025</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

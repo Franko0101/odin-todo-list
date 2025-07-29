@@ -1,6 +1,99 @@
+html, body {
+    height: 100%;
+}
+
 *,
 *::before,
 *::after {
     box-sizing: border-box;
     margin: 0;
+    padding: 0;
+}
+
+.whole-page {
+    height: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: darkblue;
+    color: #FFF8F8;
+}
+
+.buttons {
+    align-content: center;
+    padding-right: 24px;
+}
+
+button {
+    font-size: 14px;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+}
+
+.add-todo-btn {
+    margin-left: 24px;
+}
+
+.container {
+    height: 91%;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+.sideboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #0118D8;
+    color: #FFF8F8;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 36px;
+}
+
+input, select {
+    padding: 2px;
+    margin-bottom: 16px;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding-top: 24px;
+}
+
+h1 {
+    padding: 24px;
+}
+
+ul {
+    list-style: none;
+}
+
+.projects-list li {
+    font-size: 18px;
+    padding: 12px 24px;
+    margin-top: 32px;
+}
+
+.card {
+    display: flex;
+    gap: 24px;
+    padding: 24px;
+    line-height: 1.5;
+    color: black;
+    background-color: #E9DFC3;
+    border-radius: 8px;
+    margin: 1%;
+}
+
+.card-text {
+    flex: 1;
 }
