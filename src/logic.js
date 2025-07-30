@@ -1,5 +1,8 @@
-const projects = [];
-export { allTasks };
+export const projects = [];
+export function createNewProject(projectName) {
+    projects.push(new Project(projectName))
+}
+
 
 class Project  {
     constructor(name) {
@@ -20,12 +23,15 @@ class Project  {
 
 class TodoItem {
     constructor(title, description, dueDate, priority) {
+        this.id = crypto.randomUUID();
         this.title = title;
         this.description = description;
         this.dueDate = dueDate;
         this.priority = priority;
         this.checked = false;
     }
+
+    changeCheck = () => this.checked = !this.checked;
 }
 
-const allTasks = new Project("All Tasks");
+projects.push(new Project("All Tasks"));
