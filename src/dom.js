@@ -1,7 +1,8 @@
-export { displayTodos, displayProjects };
+export { displayTodos, displayProjects, createProjectSelection };
 
 const todoList = document.querySelector(".main ul");
 const projectList = document.querySelector(".sideboard ul");
+const select = document.querySelector(".project");
 
 function removeAllChild(parent) {
     while (parent.firstChild) {
@@ -72,6 +73,15 @@ function createProjectButton(project) {
     projectList.appendChild(li);
 }
 
+function createProjectOption(project, index) {
+    const option = document.createElement("option");
+    option.setAttribute("value", `${index}`);
+    option.setAttribute("name", `${project.name}`);
+    option.textContent = project.name;
+
+    select.appendChild(option);
+}
+
 function displayTodos(todos) {
     removeAllChild(todoList);
 
@@ -85,5 +95,13 @@ function displayProjects(projects) {
 
     for (let project of projects) {
         createProjectButton(project);
+    }
+}
+
+function createProjectSelection(projects) {
+    removeAllChild(select);
+
+    for (let i = 0; i < projects.length; i++) {
+        createProjectOption(projects[i], i);
     }
 }
