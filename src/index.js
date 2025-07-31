@@ -1,6 +1,7 @@
 /*
-Implement a way to create projects.
-Write a function to display all projects in the sidebar;
+Implement a way to create projects. *
+Write a function to display all projects in the sidebar; *
+Every project button in the sidebar should display its todos. *
 Adding a way to choose in which project you want to add your new todo.
 Adding a way to edit a todo.
 Adding a way to delete a todo.
@@ -8,7 +9,7 @@ Adding a way to delete a todo.
 
 import "./styles.css";
 import { projects, createNewProject } from "./logic.js";
-import { displayTodos } from "./dom.js";
+import { displayTodos, displayProjects } from "./dom.js";
 //import image from "./image.png";
 
 const addTodoBtn = document.querySelector(".add-todo-btn");
@@ -17,8 +18,11 @@ const form = document.querySelector("form");
 
 newProjectBtn.addEventListener("click", () => {
     const newProjectName = prompt("Enter the name of the new project", "New Project");
-    createNewProject(newProjectName);
-    console.log(projects);
+    if (newProjectName != null) {
+        createNewProject(newProjectName);
+        console.log(projects);
+        displayProjects(projects);
+    }
 });
 
 addTodoBtn.addEventListener("click", () => {
@@ -36,3 +40,5 @@ form.addEventListener("submit", (e) => {
     console.log(projects[0].todos);
     displayTodos(projects[0].todos);
 })
+
+displayProjects(projects);

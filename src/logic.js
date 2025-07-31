@@ -3,7 +3,6 @@ export function createNewProject(projectName) {
     projects.push(new Project(projectName))
 }
 
-
 class Project  {
     constructor(name) {
         this.name = name

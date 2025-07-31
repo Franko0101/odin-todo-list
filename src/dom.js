@@ -1,6 +1,7 @@
-export { displayTodos };
+export { displayTodos, displayProjects };
 
-const list = document.querySelector(".main ul");
+const todoList = document.querySelector(".main ul");
+const projectList = document.querySelector(".sideboard ul");
 
 function removeAllChild(parent) {
     while (parent.firstChild) {
@@ -54,13 +55,35 @@ function createTodoElement(todoItem) {
     card.appendChild(cardDeadline);
 
     li.appendChild(card);
-    list.appendChild(li);
+    todoList.appendChild(li);
+}
+
+function createProjectButton(project) {
+    const li = document.createElement("li");
+
+    const btn = document.createElement("button");
+    btn.textContent = project.name;
+
+    btn.addEventListener("click", () => {
+        displayTodos(project.todos);
+    })
+
+    li.appendChild(btn);
+    projectList.appendChild(li);
 }
 
 function displayTodos(todos) {
-    removeAllChild(list);
+    removeAllChild(todoList);
 
     for (let todo of todos) {
         createTodoElement(todo);
+    }
+}
+
+function displayProjects(projects) {
+    removeAllChild(projectList);
+
+    for (let project of projects) {
+        createProjectButton(project);
     }
 }
