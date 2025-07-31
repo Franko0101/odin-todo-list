@@ -3,8 +3,8 @@ Implement a way to create projects. *
 Write a function to display all projects in the sidebar; *
 Every project button in the sidebar should display its todos. *
 Adding a way to choose in which project you want to add your new todo. *
+Adding a way to delete a todo. *
 Adding a way to edit a todo.
-Adding a way to delete a todo.
 */
 
 import "./styles.css";

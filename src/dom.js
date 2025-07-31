@@ -10,7 +10,7 @@ function removeAllChild(parent) {
     }
 }
 
-function createTodoElement(todoItem) {
+function createTodoElement(todoItem, todos) {
 
     const li = document.createElement("li");
 
@@ -24,7 +24,19 @@ function createTodoElement(todoItem) {
     if (todoItem.checked) {
         checkbox.setAttribute("checked", "checked");
     }
-    checkbox.addEventListener("change", todoItem.changeCheck);
+    checkbox.addEventListener("change", () => {
+        todoItem.changeCheck();
+    });
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.classList.add("delete-btn");
+    deleteBtn.innerHTML = "&#10060";
+
+    deleteBtn.addEventListener("click", () => {
+        const index = todos.find(item => item.id == todoItem.id)
+        todos.splice(index, 1);
+        displayTodos(todos);
+    })
 
     const cardText = document.createElement("div");
     cardText.classList.add("card-text");
@@ -52,6 +64,7 @@ function createTodoElement(todoItem) {
     cardText.appendChild(description);
 
     card.appendChild(checkbox);
+    card.appendChild(deleteBtn);
     card.appendChild(cardText);
     card.appendChild(cardDeadline);
 
@@ -86,7 +99,7 @@ function displayTodos(todos) {
     removeAllChild(todoList);
 
     for (let todo of todos) {
-        createTodoElement(todo);
+        createTodoElement(todo, todos);
     }
 }
 

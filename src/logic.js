@@ -30,7 +30,10 @@ class TodoItem {
         this.checked = false;
     }
 
-    changeCheck = () => this.checked = !this.checked;
+    changeCheck = () => { 
+        this.checked = !this.checked;
+        console.log(this.checked);
+    }
 }
 
 projects.push(new Project("All Tasks"));
